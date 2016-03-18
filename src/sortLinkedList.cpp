@@ -8,6 +8,7 @@ OUTPUT: Sort the linked list.
 
 ERROR CASES: Return NULL for error cases.
 
+
 NOTES: Without using extra array or linked list.
 */
 
@@ -19,5 +20,27 @@ struct node {
 };
 
 struct node * sortLinkedList(struct node *head) {
-	return NULL;
+	int x;
+	node *l1, *l2, *p;
+	p = head;
+	if (head==NULL || sortLinkedList==NULL)
+	{
+		return NULL;
+	}
+
+	if (head->next == NULL){ return head;}
+	while (p != NULL){
+		l1 = head; l2 = head->next;
+		do{
+			if (l1->num>l2->num)
+			{
+				x = l1->num;
+				l1->num = l2->num;
+				l2->num = x;
+			}
+			l2 = l2->next;
+			l1 = l1->next;
+		} while (l2 != NULL);
+		p = p->next;
+	}return head;
 }
